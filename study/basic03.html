@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.실습</title>
+</head>
+
+<body>
+
+    <script>
+        // 키와 몸무게
+        var height = 180;
+        var weight = 74;
+
+        // 적정체중을 구하는 함수
+        function goodWeight(height, weight) {
+            var good = (height - 100) * 0.9
+            document.write("적정 체중 = " + good);
+            document.write("<br>");
+            return good
+        }
+
+        // 적정체중인지 여부 결정
+        if (weight <= goodWeight(height, weight)) {
+            document.write("적정 체중입니다.");
+        } else {
+            document.write("비만입니다.");
+        }
+        document.write("<br>");
+    </script>
+
+</body>
+
+</html>
