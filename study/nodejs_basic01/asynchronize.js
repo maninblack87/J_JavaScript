@@ -13,5 +13,7 @@ function displayB(callback) {
 function displayC() {
     console.log(`C`);
 }
+
+// 2. 함수를 호출
 displayA();
 displayB(displayC);         // 3. displayB()함수에 displayC()를 >>>>_콜백함수_<<<<로 매개변수를 넣어줘야 연결이 된다!

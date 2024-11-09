@@ -6,8 +6,8 @@
 
 // 1. CommonJS모듈
 // 모듈 불러오기
-const { user1, user2 } = require('./a3user.js');
-const hello = require('./a3hello.js');
+const { user1, user2 } = require('./module1_user.js');
+const hello = require('./module1_hello.js');
 // (불러온 모듈로) 함수 실행
 hello(user1);
 hello(user2);
