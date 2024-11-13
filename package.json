@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "express": "^4.21.1",
+    "j_javascript": "file:"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  },
+  "name": "j_javascript",
+  "version": "1.0.0",
+  "description": "my java script source codes",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
