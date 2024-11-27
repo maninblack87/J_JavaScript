@@ -1,4 +1,4 @@
-const express = require(`express`);
+const express = require("express");
 const router = express.Router();
 
 router
@@ -10,22 +10,21 @@ router
         console.log(req.body);
         const { name, email, phone } = req.body;
         if (!name || !email || !phone) {
-            return res.send("필수 값이 입력되지 않았습니다.");
+            return res.send(`필수 값이 입력되지 않았습니다.`);
         }
-
         res.send(`Create Contact`);
-    });
+    })
 
 router
     .route("/:id")
     .get((req, res) => {
-        res.send(`View Contact for ID : ${req.params.id}`);
+        res.send(`View contact for ID : ${req.params.id}`);
     })
     .put((req, res) => {
-        res.send(`Update Contact for ID : ${req.params.id}`);
+        res.send(`Update contact for ID : ${req.params.id}`);
     })
     .delete((req, res) => {
-        res.send(`Delete Contact for ID : ${req.params.id}`);
+        res.send(`Delete contact for ID : ${req.params.id}`);
     })
 
 // router 내보내기
