@@ -18,3 +18,8 @@ const contactSchema = new mongoose.Schema(
         timestamps: true
     }
 )
+
+// 스키마 -> 모델
+const Contact = mongoose.model("Contact", contactSchema);
+
+module.exports = Contact;
