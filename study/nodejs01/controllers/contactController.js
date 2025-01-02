@@ -5,12 +5,7 @@ const contact = require("../models/contactModel");
 // Get /contacts
 const getAllContacts = asyncHandler(async (req, res) => {
     const contacts = await contact.find();
-    // 해당 배열은 템플릿 파일에게 넘겨주기 위해(임시로)
-    const users = [
-        { name: "Kim", email: "kim@abc.def", phone: "12345" },
-        { name: "Lee", email: "lee@abc.def", phone: "56789" },
-    ];
-    res.render("getAll", { users: users });
+    res.render("index", { contacts: contacts });
 });
 
 // Create Contact

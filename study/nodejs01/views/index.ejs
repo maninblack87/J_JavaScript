@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get All Contacts</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1><a href="/">Contacts Page</a></h1>
+    </header>
+
+    <main>
+        <div class="button-box">
+            <a href="#" class="btn btn-light">연락처 추가</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>메일주소</th>
+                    <th>전화번호</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% contacts.forEach(contact=> { %>
+                    <tr>
+                        <td>
+                            <% contact.name %>
+                        </td>
+                        <td>
+                            <% contact.email %>
+                        </td>
+                        <td>
+                            <% contact.phone %>
+                        </td>
+                        <td>
+                            <a href="#" title="수정">수정</a>
+                            <a href="#" title="삭제">삭제</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </main>
+
+</body>
+
+</html>
