@@ -3,6 +3,9 @@ const dbConnect = require(`./config/dbconnect`);
 
 const app = express();
 
+app.set("view engine", "ejs");
+app.set("views", "./views");
+
 dbConnect();
 
 app.get("/", (req, res) => {

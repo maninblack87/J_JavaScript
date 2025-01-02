@@ -20,6 +20,6 @@ const contactSchema = new mongoose.Schema(
 )
 
 // 스키마 -> 모델
-const Contact = mongoose.model("Contact", contactSchema);
+const contact = mongoose.model("Contact", contactSchema);
 
-module.exports = Contact;
+module.exports = contact;
