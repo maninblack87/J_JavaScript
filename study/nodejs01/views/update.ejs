@@ -1,0 +1,38 @@
+<%- include("./include/_header.ejs") %>
+
+    <main>
+        <div class="button-box">
+            <a href="#" class="btn btn-light">연락처 목록</a>
+        </div>
+
+        <h2>연락처 수정</h2>
+        <p>연락처 정보를 수정합니다.</p>
+        <form method="POST">
+            <div id="user-info">
+                <!-- 이름 -->
+                <div>
+                    <label for="name">이름</label>
+                    <div>
+                        <input type="text" name="name" id="name" placeholder="홍길동">
+                    </div>
+                </div>
+                <!-- 메일 주소 -->
+                <div>
+                    <label for="email">메일주소</label>
+                    <div>
+                        <input type="text" name="email" id="email" placeholder="hong@abc.def">
+                    </div>
+                </div>
+                <!-- 전화번호 -->
+                <div>
+                    <label for="phone">전화번호</label>
+                    <div>
+                        <input type="text" name="phone" id="phone" placeholder="012-3456-7890">
+                    </div>
+                </div>
+                <button type="submit">수정하기</button>
+            </div>
+        </form>
+    </main>
+
+    <%- include("./include/_footer.ejs") %>

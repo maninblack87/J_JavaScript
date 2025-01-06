@@ -1,12 +1,18 @@
 const asyncHandler = require("express-async-handler");
-const contact = require("../models/contactModel");
+const Contact = require("../models/contactModel");
 
 // Get all contacts
 // Get /contacts
 const getAllContacts = asyncHandler(async (req, res) => {
-    const contacts = await contact.find();
+    const contacts = await Contact.find();
     res.render("index", { contacts: contacts });
 });
+
+// View add Contact form
+// GET /contacts/add
+const addContactForm = (req, res) => {
+    res.render("add");
+}
 
 // Create Contact
 // Post /contacts
@@ -17,7 +23,7 @@ const createContact = asyncHandler(async (req, res) => {
         return res.send("필수 값이 입력되지 않았습니다.");
     }
 
-    const contact = await contact.create({
+    const contact = await Contact.create({
         name, email, phone
     });
     res.send("Create Contact");
@@ -26,7 +32,7 @@ const createContact = asyncHandler(async (req, res) => {
 // Get contact
 // Get /contacts/:id
 const getContact = asyncHandler(async (req, res) => {
-    const contact = await contact.findById(req.params.id);
+    const contact = await Contact.findById(req.params.id);
     res.send(`View Contact for ID: ${req.params.id}`);
 });
 
@@ -36,7 +42,7 @@ const updateContact = asyncHandler(async (req, res) => {
     const id = req.params.id;
     const { name, email, phone } = req.body;
 
-    const contact = await contact.findById(id);
+    const contact = await Contact.findById(id);
     if (!contact) {
         throw new Error("Contact not found");
     }
@@ -55,7 +61,7 @@ const updateContact = asyncHandler(async (req, res) => {
 const deleteContact = asyncHandler(async (req, res) => {
     const id = req.params.id;
 
-    const contact = await contact.findById(id);
+    const contact = await Contact.findById(id);
     if (!contact) {
         throw new Error("Contact not found");
     }
@@ -64,4 +70,11 @@ const deleteContact = asyncHandler(async (req, res) => {
     res.send("Deleted");
 })
 
-module.exports = { getAllContacts, createContact, getContact, updateContact, deleteContact };
+module.exports = {
+    getAllContacts,
+    createContact,
+    getContact,
+    updateContact,
+    deleteContact,
+    addContactForm,
+};

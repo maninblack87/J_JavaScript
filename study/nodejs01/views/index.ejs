@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get All Contacts</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-
-<body>
-
-    <header>
-        <h1><a href="/">Contacts Page</a></h1>
-    </header>
+<%- include("./include/_header.ejs") %>
 
     <main>
         <div class="button-box">
-            <a href="#" class="btn btn-light">연락처 추가</a>
+            <a href="/contacts/add" class="btn btn-light">연락처 추가</a>
         </div>
         <table class="table">
             <thead>
@@ -49,6 +35,4 @@
         </table>
     </main>
 
-</body>
-
-</html>
+    <%- include("./include/_footer.ejs") %>
