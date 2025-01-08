@@ -17,17 +17,20 @@
                 <% contacts.forEach(contact=> { %>
                     <tr>
                         <td>
-                            <% contact.name %>
+                            <%= contact.name %>
                         </td>
                         <td>
-                            <% contact.email %>
+                            <%= contact.email %>
                         </td>
                         <td>
-                            <% contact.phone %>
+                            <%= contact.phone %>
                         </td>
                         <td>
-                            <a href="#" title="수정">수정</a>
-                            <a href="#" title="삭제">삭제</a>
+                            <a href="/contacts/<%=contact.id%>" title="수정">수정</a>
+                            <form action="/contacts/<%=contact._id%>?_method=DELETE" method="POST"
+                                style="display:inline">
+                                <input type="submit" class="btn delete" title="삭제" value="삭제">
+                            </form>
                         </td>
                     </tr>
                     <% }) %>

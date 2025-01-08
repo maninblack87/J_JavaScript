@@ -26,14 +26,15 @@ const createContact = asyncHandler(async (req, res) => {
     const contact = await Contact.create({
         name, email, phone
     });
-    res.send("Create Contact");
+    res.redirect("/contacts");
 });
 
 // Get contact
 // Get /contacts/:id
+// 선택한 아이디의 수정 페이지로 이동시킨다
 const getContact = asyncHandler(async (req, res) => {
     const contact = await Contact.findById(req.params.id);
-    res.send(`View Contact for ID: ${req.params.id}`);
+    res.render("update", { contact: contact });
 });
 
 // Update contact
@@ -53,21 +54,14 @@ const updateContact = asyncHandler(async (req, res) => {
 
     contact.save();
 
-    res.json(contact);
+    res.redirect("/contacts");
 });
 
 // Delete contact
 // DELETE /contacts/:id
 const deleteContact = asyncHandler(async (req, res) => {
-    const id = req.params.id;
-
-    const contact = await Contact.findById(id);
-    if (!contact) {
-        throw new Error("Contact not found");
-    }
-
-    await contact.deleteOne();
-    res.send("Deleted");
+    await Contact.findByIdAndDelete(req.params.id);
+    res.redirect("/contacts")
 })
 
 module.exports = {
