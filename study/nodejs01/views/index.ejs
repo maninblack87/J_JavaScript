@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get All Contacts</title>
-    <link rel="stylesheet" href="/css/style.css">
-</head>
-
-<body>
-
-    <header>
-        <h1><a href="/">Contacts Page</a></h1>
-    </header>
+<%- include("./include/_header.ejs") %>
 
     <main>
         <div class="button-box">
-            <a href="#" class="btn btn-light">연락처 추가</a>
+            <a href="/contacts/add" class="btn btn-light">연락처 추가</a>
         </div>
         <table class="table">
             <thead>
@@ -31,17 +17,20 @@
                 <% contacts.forEach(contact=> { %>
                     <tr>
                         <td>
-                            <% contact.name %>
+                            <%= contact.name %>
                         </td>
                         <td>
-                            <% contact.email %>
+                            <%= contact.email %>
                         </td>
                         <td>
-                            <% contact.phone %>
+                            <%= contact.phone %>
                         </td>
                         <td>
-                            <a href="#" title="수정">수정</a>
-                            <a href="#" title="삭제">삭제</a>
+                            <a href="/contacts/<%=contact.id%>" title="수정">수정</a>
+                            <form action="/contacts/<%=contact._id%>?_method=DELETE" method="POST"
+                                style="display:inline">
+                                <input type="submit" class="btn delete" title="삭제" value="삭제">
+                            </form>
                         </td>
                     </tr>
                     <% }) %>
@@ -49,6 +38,4 @@
         </table>
     </main>
 
-</body>
-
-</html>
+    <%- include("./include/_footer.ejs") %>
