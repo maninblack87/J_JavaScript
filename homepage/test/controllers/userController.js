@@ -1,7 +1,7 @@
 const asyncHandler = require("express-async-handler");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const User = require("../models/userModels");
+const User = require("../models/userModel");
 
 // 회원가입 함수
 const signUp = asyncHandler(async (req, res) => {
@@ -75,7 +75,11 @@ const login = asyncHandler(async (req, res) => {
         { expiresIn: "30d" }    // 토큰 유효기간 설정
     )
 
-    // 5. 로그인 성공 시 응답
+    // 5. 세션에 사용자 id와 JWT 토큰 저장
+    req.session.id = user.id;
+    req.session.token = token;
+
+    // 6. 로그인 성공 시 응답
     res.status(200).json({
         _id: user.id,
         id: user.id,

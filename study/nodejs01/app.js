@@ -9,7 +9,6 @@ app.set("views", "./views");
 
 // 정적인 파일 연결하기
 app.use(express.static("./public"));
-
 app.use(methodOverride(`_method`));
 
 dbConnect();
